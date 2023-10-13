@@ -57,10 +57,9 @@ defineProps({
           type="email"
           label="Teléfono"
           placeholder="Teléfono del Cliente"
-          validation="required|email"
+          validation="*matches:/^[0-9]{3}-[0-9]{3}-[0-9]{3}$/"
           :validation-messages="{
-            required: 'El email del cliente es obligatorio',
-            email: 'Coloca un email válido',
+            matches: 'El formato no es válido',
           }"
         />
       </div>
