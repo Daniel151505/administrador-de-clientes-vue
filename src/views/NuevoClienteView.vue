@@ -25,13 +25,44 @@ defineProps({
             type="text"
             label="Nombre"
             placeholder="Nombre de Cliente"
-            help="Coloca el Nombre del cliente que desear registrar"
             validation="required"
             :validation-messages="{
               required: 'El nombre del cliente es obligatorio',
             }"
           />
+
+          <FormKit
+            type="text"
+            label="Apellido"
+            placeholder="Apellido del Cliente"
+            validation="required"
+            :validation-messages="{
+              required: 'El apellido del cliente es obligatorio',
+            }"
+          />
+
+          <FormKit
+            type="text"
+            label="Email"
+            placeholder="Email del Cliente"
+            validation="required|email"
+            :validation-messages="{
+              required: 'El email del cliente es obligatorio',
+              email: 'Coloca un email válido',
+            }"
+          />
         </FormKit>
+
+        <FormKit
+          type="email"
+          label="Teléfono"
+          placeholder="Teléfono del Cliente"
+          validation="required|email"
+          :validation-messages="{
+            required: 'El email del cliente es obligatorio',
+            email: 'Coloca un email válido',
+          }"
+        />
       </div>
     </div>
   </div>
