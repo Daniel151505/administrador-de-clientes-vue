@@ -20,7 +20,11 @@ defineProps({
 
     <div class="mx-auto mt-10 bg-white shadow">
       <div class="mx-auto md:w-2/3 py-20 px-6">
-        <FormKit type="form">
+        <FormKit
+          type="form"
+          submit-label="Agregar Cliente"
+          incomplete-message="No se pudo enviar, revisa los mensajes"
+        >
           <FormKit
             type="text"
             label="Nombre"
@@ -51,17 +55,29 @@ defineProps({
               email: 'Coloca un email válido',
             }"
           />
-        </FormKit>
 
-        <FormKit
-          type="email"
-          label="Teléfono"
-          placeholder="Teléfono del Cliente"
-          validation="*matches:/^[0-9]{3}-[0-9]{3}-[0-9]{3}$/"
-          :validation-messages="{
-            matches: 'El formato no es válido',
-          }"
-        />
+          <FormKit
+            type="email"
+            label="Teléfono"
+            placeholder="Teléfono del Cliente"
+            validation="*matches:/^[0-9]{3}-[0-9]{3}-[0-9]{3}$/"
+            :validation-messages="{
+              matches: 'El formato no es válido',
+            }"
+          />
+
+          <FormKit
+            type="text"
+            label="Empresa"
+            placeholder="Empresa a la que pertenece el cliente"
+          />
+
+          <FormKit
+            type="text"
+            label="Puesto"
+            placeholder="Puesto del Cliente"
+          />
+        </FormKit>
       </div>
     </div>
   </div>
