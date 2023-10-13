@@ -1,16 +1,14 @@
 <script setup>
 import RouterLink from "../components/RouterLink.vue";
+import HeadingVue from "../components/UI/Heading.vue";
 </script>
 
 <template>
   <div>
     <div class="flex justify-end">
-      <RouterLink to="inicio">
-        Agregar Cliente
-      </RouterLink>
+      <RouterLink to="inicio"> Agregar Cliente </RouterLink>
     </div>
 
-    <h1 class="text-4xl font-extrabold text-slate-500">Clientes</h1>
+    <HeadingVue>Agregar Cliente</HeadingVue>
   </div>
 </template>
-
