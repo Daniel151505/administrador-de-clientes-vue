@@ -8,6 +8,10 @@ defineProps({
     type: String,
   },
 });
+
+const handleSubmit = (data) => {
+  console.log(data)
+};
 </script>
 
 <template>
@@ -24,10 +28,12 @@ defineProps({
           type="form"
           submit-label="Agregar Cliente"
           incomplete-message="No se pudo enviar, revisa los mensajes"
+          @submit="handleSubmit"
         >
           <FormKit
             type="text"
             label="Nombre"
+            name="nombre"
             placeholder="Nombre de Cliente"
             validation="required"
             :validation-messages="{
@@ -38,6 +44,7 @@ defineProps({
           <FormKit
             type="text"
             label="Apellido"
+            name="apellido"
             placeholder="Apellido del Cliente"
             validation="required"
             :validation-messages="{
@@ -48,6 +55,7 @@ defineProps({
           <FormKit
             type="text"
             label="Email"
+            name="email"
             placeholder="Email del Cliente"
             validation="required|email"
             :validation-messages="{
@@ -57,8 +65,9 @@ defineProps({
           />
 
           <FormKit
-            type="email"
+            type="text"
             label="Teléfono"
+            name="telefono"
             placeholder="Teléfono del Cliente"
             validation="*matches:/^[0-9]{3}-[0-9]{3}-[0-9]{3}$/"
             :validation-messages="{
@@ -69,12 +78,14 @@ defineProps({
           <FormKit
             type="text"
             label="Empresa"
+            name="empresa"
             placeholder="Empresa a la que pertenece el cliente"
           />
 
           <FormKit
             type="text"
             label="Puesto"
+            name="puesto"
             placeholder="Puesto del Cliente"
           />
         </FormKit>
