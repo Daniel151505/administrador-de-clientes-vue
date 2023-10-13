@@ -1,12 +1,13 @@
 <script setup>
+import { FormKit } from "@formkit/vue";
 import RouterLink from "../components/RouterLink.vue";
 import HeadingVue from "../components/UI/Heading.vue";
 
 defineProps({
   titulo: {
-    type: String
-  }
-}) 
+    type: String,
+  },
+});
 </script>
 
 <template>
@@ -16,5 +17,9 @@ defineProps({
     </div>
 
     <HeadingVue>{{ titulo }}</HeadingVue>
+
+    <div class="mx-auto mt-10 bg-white shadow">
+      <FormKit type="form"> </FormKit>
+    </div>
   </div>
 </template>
