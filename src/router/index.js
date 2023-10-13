@@ -1,20 +1,26 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Inicio from '../views/ClientesView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import Inicio from "../views/ClientesView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'inicio',
-      component: Inicio
+      path: "/",
+      name: "inicio",
+      component: Inicio,
+      props: {
+        titulo: "Listado de Clientes",
+      },
     },
     {
-      path: '/agregar-cliente',
-      name: 'agregar-cliente',
-      component: () => import('../views/NuevoClienteView.vue')
-    }
-  ]
-})
+      path: "/agregar-cliente",
+      name: "agregar-cliente",
+      component: () => import("../views/NuevoClienteView.vue"),
+      props: {
+        titulo: "Agregar Cliente",
+      },
+    },
+  ],
+});
 
-export default router
+export default router;
