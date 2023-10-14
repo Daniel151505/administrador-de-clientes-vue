@@ -1,4 +1,5 @@
 <script setup>
+import axios from "axios";
 import { FormKit } from "@formkit/vue";
 import RouterLink from "../components/RouterLink.vue";
 import HeadingVue from "../components/UI/Heading.vue";
@@ -10,7 +11,12 @@ defineProps({
 });
 
 const handleSubmit = (data) => {
-  console.log(data)
+  axios.post("http://localhost:4000/clientes", data)
+    .then((respuesta) => 
+      // Redireccionar
+      
+    )
+    .catch((error) => console.log(error));
 };
 </script>
 
