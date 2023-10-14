@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref, computed } from "vue";
-import axios from "../lib/axios";
+import ClienteService from "../services/ClienteService";
 import RouterLink from "../components/UI/RouterLink.vue";
 import HeadingVue from "../components/UI/Heading.vue";
 import ClienteVue from "../components/Cliente.vue";
@@ -8,7 +8,7 @@ import ClienteVue from "../components/Cliente.vue";
 const clientes = ref([]);
 
 onMounted(() => {
-  axios("/clientes")
+  ClienteService.obtenerClientes()
     .then(({ data }) => (clientes.value = data))
     .catch((error) => console.log("Hubo un error"));
 }),
@@ -67,7 +67,11 @@ const existenClientes = computed(() => {
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 bg-white">
-              <ClienteVue v-for="cliente in clientes" :key="cliente.id" :cliente="cliente"/>
+              <ClienteVue
+                v-for="cliente in clientes"
+                :key="cliente.id"
+                :cliente="cliente"
+              />
             </tbody>
           </table>
         </div>
