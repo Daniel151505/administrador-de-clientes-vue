@@ -11,5 +11,8 @@ export default {
 
   obtenerCliente(id) {
     return api.get('/clientes/' + id)
-  }
+  },
+
+  actualizarCliente(id, data) {
+    return api.put('/clientes/' + id, data)
 };
