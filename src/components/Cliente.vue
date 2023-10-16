@@ -8,6 +8,8 @@ const props = defineProps({
   },
 });
 
+defineEmits(["actualizar-estado"]);
+
 const nombreCliente = computed(() => {
   return props.cliente.nombre + " " + props.cliente.apellido;
 });
@@ -45,6 +47,9 @@ const estadoCliente = computed(() => {
       <RouterLink
         :to="{ name: 'editar-cliente', params: { id: cliente.id } }"
         class="text-indigo-600 hover:text-indigo-900 mr-5"
+        @click="
+          $emit('actualizar-estado', { id: cliente.id, estado: cliente.estado })
+        "
       >
         Editar
       </RouterLink>
