@@ -1,23 +1,28 @@
 <script setup>
+import { onMounted } from "vue";
 import { FormKit } from "@formkit/vue";
 import { useRouter, useRoute } from "vue-router";
+import ClienteService from "../services/ClienteService";
 import RouterLink from "../components/RouterLink.vue";
 import HeadingVue from "../components/UI/Heading.vue";
 
 const router = useRouter();
 const route = useRoute();
 
-const { id } = route.params; 
+const { id } = route.params;
 
-defineProps({
-  titulo: {
-    type: String,
-  },
-});
+onMounted(() => {
+  ClienteService.obtenerCliente(id)
+    .then(({ data }) => console.log(data))
+    .catch((error) => console.log(error));
+}),
+  defineProps({
+    titulo: {
+      type: String,
+    },
+  });
 
-const handleSubmit = (data) => {
-
-};
+const handleSubmit = (data) => {};
 </script>
 
 <template>
