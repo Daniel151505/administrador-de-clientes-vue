@@ -12,12 +12,17 @@ const route = useRoute();
 const { id } = route.params;
 
 const formData = reactive({
-  nombre: ''
-})
+  nombre: "",
+  apellido: "",
+  email: "",
+  telefono: "",
+  empresa: "",
+  puesto: "",
+});
 
 onMounted(() => {
   ClienteService.obtenerCliente(id)
-    .then(({ data }) => console.log(data))
+    .then(({ data }) => Object.assign(formData, data))
     .catch((error) => console.log(error));
 }),
   defineProps({
@@ -80,6 +85,7 @@ const handleSubmit = (data) => {};
               required: 'El email del cliente es obligatorio',
               email: 'Coloca un email válido',
             }"
+            v-model="formData.email"
           />
 
           <FormKit
@@ -91,6 +97,7 @@ const handleSubmit = (data) => {};
             :validation-messages="{
               matches: 'El formato no es válido',
             }"
+            v-model="formData.telefono"
           />
 
           <FormKit
@@ -98,6 +105,7 @@ const handleSubmit = (data) => {};
             label="Empresa"
             name="empresa"
             placeholder="Empresa a la que pertenece el cliente"
+            v-model="formData.empresa"
           />
 
           <FormKit
@@ -105,6 +113,7 @@ const handleSubmit = (data) => {};
             label="Puesto"
             name="puesto"
             placeholder="Puesto del Cliente"
+            v-model="formData.puesto"
           />
         </FormKit>
       </div>
